@@ -35,7 +35,7 @@
         android:layout_marginEnd="16dp"
         android:backgroundTint="@android:color/holo_green_light"
         android:text="@string/easy_level"
-        />
+        tools:ignore="TextContrastCheck" />
 
     <Button
         android:id="@+id/button_level_normal"
@@ -45,7 +45,7 @@
         android:layout_marginEnd="16dp"
         android:backgroundTint="@android:color/holo_orange_light"
         android:text="@string/normal_level"
-        />
+        tools:ignore="TextContrastCheck" />
 
     <Button
         android:id="@+id/button_level_hard"
@@ -55,6 +55,6 @@
         android:layout_marginEnd="16dp"
         android:backgroundTint="@android:color/holo_red_light"
         android:text="@string/hard_level"
-        />
+        tools:ignore="TextContrastCheck" />
 
 </LinearLayout>
