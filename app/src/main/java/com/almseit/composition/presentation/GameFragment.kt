@@ -16,6 +16,7 @@ class GameFragment : Fragment() {
 
     private lateinit var level: Level
 
+
     private var _binding: FragmentGameBinding? = null
     private val binding: FragmentGameBinding
         get() = _binding ?: throw RuntimeException("FragmentGameBinding = null")
