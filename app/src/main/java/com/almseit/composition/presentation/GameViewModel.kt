@@ -19,7 +19,7 @@ class GameViewModel(application:Application) : AndroidViewModel(application) {
     private lateinit var gameSettings: GameSettings
     private lateinit var level: Level
 
-    private val context = Application()
+    private val context = application
     private val repository = GameRepositoryImpl
 
     private val getGamesSettingsUseCase = GetGamesSettingsUseCase(repository)
@@ -68,6 +68,7 @@ class GameViewModel(application:Application) : AndroidViewModel(application) {
         getGameSettings(level)
         startTimer()
         generateQuestion()
+        updateProgress()
     }
 
     private fun getGameSettings(level: Level) {
@@ -89,7 +90,11 @@ class GameViewModel(application:Application) : AndroidViewModel(application) {
 
     }
 
+
     private fun calculatePercentOfRightAnswers():Int{
+        if (countOfQuestion == 0){
+            return 0
+        }
         return ((countOfRightAnswer / countOfQuestion.toDouble()) * 100).toInt()
     }
 
@@ -111,7 +116,7 @@ class GameViewModel(application:Application) : AndroidViewModel(application) {
 
     // Генерация следующего вопроса
     private fun generateQuestion() {
-        _question.value = generateQuestionUseCase(gameSettings.maxSumValue)
+        _question.value = generateQuestionUseCase.execute(gameSettings.maxSumValue)
     }
 
 
