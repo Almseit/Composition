@@ -5,7 +5,7 @@ import com.almseit.composition.domain.repository.GameRepository
 
 class GenerateQuestionUseCase(private val gameRepository: GameRepository) {
 
-    operator fun invoke(maxSumValue:Int) : Questions{
+    fun execute(maxSumValue:Int) : Questions{
         return gameRepository.generateQuestion(maxSumValue, COUNT_OF_OPTIONS)
     }
 
